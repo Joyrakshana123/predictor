@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Predict patient drug response using our advanced AI model.">
+    <title>Drug Response Predictor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    
+    <main class="container">
+        <header>
+            <h1>Drug Response <span>Predictor</span></h1>
+            <p>Input patient details to predict stage and optimal drug response.</p>
+        </header>
+        
+        <section class="glass-panel">
+            <form id="predictionForm">
+                <div class="grid-container" id="patientInputs">
+                    <div class="input-group"><input type="number" step="any" name="age" id="age" required placeholder=" " value="45"><label for="age">Age</label></div>
+                    <div class="input-group">
+                        <select name="gender" id="gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="gender" class="static-label">Gender</label>
+                    </div>
+                    <div class="input-group">
+                        <select name="cancer_type" id="cancer_type" required>
+                            <option value="Breast">Breast</option>
+                            <option value="Lung">Lung</option>
+                            <option value="Prostate">Prostate</option>
+                            <option value="Colon">Colon</option>
+                            <option value="Skin">Skin</option>
+                        </select>
+                        <label for="cancer_type" class="static-label">Cancer Type</label>
+                    </div>
+                    <div class="input-group"><input type="number" step="any" name="tumor_size" id="tumor_size" required placeholder=" " value="3.5"><label for="tumor_size">Tumor Size (cm)</label></div>
+                    <div class="input-group"><input type="number" step="any" name="lymph_nodes" id="lymph_nodes" required placeholder=" " value="2"><label for="lymph_nodes">Lymph Nodes</label></div>
+                    <div class="input-group"><input type="number" step="any" name="biomarker_1" id="biomarker_1" required placeholder=" " value="12.5"><label for="biomarker_1">Biomarker 1</label></div>
+                    <div class="input-group"><input type="number" step="any" name="biomarker_2" id="biomarker_2" required placeholder=" " value="45.1"><label for="biomarker_2">Biomarker 2</label></div>
+                    <div class="input-group">
+                        <select name="current_drug" id="current_drug" required>
+                            <option value="DrugA">Drug A</option>
+                            <option value="DrugB">Drug B</option>
+                            <option value="DrugC">Drug C</option>
+                        </select>
+                        <label for="current_drug" class="static-label">Current Drug</label>
+                    </div>
+                    <div class="input-group">
+                        <select name="symptoms" id="symptoms" required>
+                            <option value="Fatigue">Fatigue</option>
+                            <option value="Pain">Pain</option>
+                            <option value="Nausea">Nausea</option>
+                            <option value="None">None</option>
+                        </select>
+                        <label for="symptoms" class="static-label">Symptoms</label>
+                    </div>
+                </div>
+                <button type="submit" class="glow-on-hover" id="submitBtn">
+                    <span class="spinner"></span>
+                    <span class="btn-text">Predict Response</span>
+                </button>
+            </form>
+        </section>
+
+        <section id="resultPanel" class="glass-panel result-hidden">
+            <h2>Prediction Result</h2>
+            <div id="resultOutput" class="result-display">
+                <div class="result-details">
+                    <p><strong>Predicted Stage:</strong> <span id="stageText"></span></p>
+                    <p><strong>Predicted Response:</strong> <span id="responseText"></span></p>
+                </div>
+            </div>
+            
+            <div class="routine-section">
+                <h3>Recommended Daily Routine</h3>
+                <p id="routineText"></p>
+            </div>
+
+            <div class="doctors-section">
+                <h3>Find Specialists</h3>
+                <div class="doctor-search">
+                    <input type="text" id="citySearch" placeholder="Search City (e.g. New York)" class="search-input">
+                    <button id="searchDocsBtn" type="button" class="btn-secondary">Search</button>
+                </div>
+                <ul id="doctorList"></ul>
+            </div>
+            
+            <p class="safety-disclaimer">⚠️ Experimental estimate, not a medical diagnosis. Please consult your doctor.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
